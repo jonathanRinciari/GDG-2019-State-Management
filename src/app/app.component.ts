@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StateService} from '../services/state.service'
 
 @Component({
   selector: 'my-app',
@@ -6,10 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  title = 'Initial'
-
+  title = '';
+  constructor(
+    private stateService: StateService
+  ) {
+    this.setTitle();
+  }
 
   updateTitle(e) {
-    this.title = e;
+    this.stateService.title = e;
+    this.setTitle()
+  }
+
+  setTitle() {
+    this.title = this.stateService.title
   }
 }
