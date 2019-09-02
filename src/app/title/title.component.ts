@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -6,18 +6,17 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./title.component.css']
 })
 export class TitleComponent implements OnInit {
+  @Input() title: string;
   @Output() onClick = new EventEmitter();
-
-  title = '';
-
+  value = '';
   constructor() { }
 
   ngOnInit() {
   }
 
   onClickHandler() {
-    this.onClick.emit(this.title);
-    this.title = '';
+    this.onClick.emit(this.value);
+    this.value = '';
   }
 
 }

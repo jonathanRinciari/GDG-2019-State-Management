@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs'
 
 @Injectable({providedIn: 'root'})
 export class StateService {
-  private _title = 'Initial';
+  private $datasource = new BehaviorSubject('Initial');
+  public $data = this.$datasource.asObservable();
   constructor() { 
 
   }
 
-  get title() {
-    return this._title
+  updateTitle(title: string) {
+    this.$datasource.next(title);
   }
-
-  set title(newTitle) {
-    this._title = newTitle;
-  }
-
 }

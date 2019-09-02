@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {StateService} from '../services/state.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'my-app',
@@ -7,20 +8,14 @@ import {StateService} from '../services/state.service'
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  title = '';
+  $title: Observable<string>;
   constructor(
     private stateService: StateService
   ) {
-    this.setTitle();
+    this.$title = stateService.$data;
   }
 
   updateTitle(e) {
-    this.stateService.title = e;
-    
-    this.setTitle()
-  }
-
-  setTitle() {
-    this.title = this.stateService.title
+    this.stateService.updateTitle(e);
   }
 }
