@@ -16,6 +16,7 @@ export class AppComponent  {
 
   updateTitle(e) {
     this.stateService.title = e;
+    
     this.setTitle()
   }
 
