@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {StateService} from '../services/state.service'
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from './state/reducers/';
 
 @Component({
   selector: 'my-app',
@@ -10,12 +11,12 @@ import { Observable } from 'rxjs';
 export class AppComponent  {
   $title: Observable<string>;
   constructor(
-    private stateService: StateService
+    private store:Store<State>
   ) {
-    this.$title = stateService.$data;
+    store.subscribe((a) => console.log(a))
   }
 
   updateTitle(e) {
-    this.stateService.updateTitle(e);
+
   }
 }

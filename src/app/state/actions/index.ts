@@ -5,11 +5,17 @@ export enum ActionTypes {
   Update = '[Title] Update'
 }
 
-export class Reset implements Action {
+export interface CustomAction extends Action {
+type: string;
+payload?: any;
+}
+
+export class Reset implements CustomAction {
   readonly type = ActionTypes.Reset;
 }
 
-export class Update implements Action {
+export class Update implements CustomAction {
   readonly type = ActionTypes.Update;
   constructor(public payload: { title: string }) {}
 }
+
