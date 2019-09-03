@@ -18,11 +18,11 @@ export const reducer: ActionReducer<State> =
         }
       case ActionTypes.Reset:
         return {
-         title: 'Initial' 
+         title: 'Hello GDG 2019!'
         }
       default: 
         return {
-          title: 'Initial'
+          title: 'Hello GDG 2019!'
         }
     }
   }
