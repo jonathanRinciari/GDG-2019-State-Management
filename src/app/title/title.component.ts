@@ -8,6 +8,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 export class TitleComponent implements OnInit {
   @Input() title: string;
   @Output() onClick = new EventEmitter();
+  @Output() onReset = new EventEmitter();
   value = '';
   constructor() { }
 
@@ -17,6 +18,10 @@ export class TitleComponent implements OnInit {
   onClickHandler() {
     this.onClick.emit(this.value);
     this.value = '';
+  }
+
+  onResetHandler() {
+    this.onReset.emit();
   }
 
 }

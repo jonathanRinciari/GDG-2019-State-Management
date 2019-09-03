@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { State } from './state/reducers/';
+import { selectTitle } from './state/selector/';
+import { tap } from 'rxjs/operators'
+import { Reset, Update } from './state/actions'
 
 @Component({
   selector: 'my-app',
@@ -13,10 +16,17 @@ export class AppComponent  {
   constructor(
     private store:Store<State>
   ) {
-    store.subscribe((a) => console.log(a))
+    this.$title = store.select('reducer').pipe(
+      select(selectTitle),
+      tap((title) => console.log(title))
+    )
   }
 
-  updateTitle(e) {
+  updateTitle(title: string) {
+    this.store.dispatch(new Update({title}));
+  }
 
+  onResetHandler() {
+    this.store.dispatch(new Reset());
   }
 }
