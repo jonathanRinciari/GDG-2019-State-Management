@@ -20,7 +20,7 @@ export class AppComponent  {
     this.setTitle()
   }
 
-  setTitle() {
+  private setTitle() {
     this.title = this.stateService.title
   }
 }
