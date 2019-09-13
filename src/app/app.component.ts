@@ -17,8 +17,7 @@ export class AppComponent  {
     private store:Store<State>
   ) {
     this.$title = store.select('reducer').pipe(
-      select(selectTitle),
-      tap((title) => console.log(title))
+      select(selectTitle)
     )
   }
 
