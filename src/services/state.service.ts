@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs'
 
 @Injectable({providedIn: 'root'})
 export class StateService {
-  private $datasource = new BehaviorSubject('Initial');
+  private $datasource = new BehaviorSubject('Hello GDG 2019!');
   public $data = this.$datasource.asObservable();
   constructor() { 
 
