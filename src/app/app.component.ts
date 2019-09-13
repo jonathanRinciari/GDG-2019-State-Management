@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  title = 'Initial'
+  title = 'Hello GDG 2019!'
 
 
   updateTitle(e) {
