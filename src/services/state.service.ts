@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class StateService {
-  private _title = 'Initial';
+  private _title = 'Hello GDG 2019!';
   constructor() { 
 
   }
