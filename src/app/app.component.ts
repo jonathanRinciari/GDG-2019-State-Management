@@ -7,7 +7,7 @@ import {StateService} from '../services/state.service'
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements onInit {
-  appTitle: sting;
+  appTitle: string;
   constructor(
     private stateService: StateService
   ) {}
