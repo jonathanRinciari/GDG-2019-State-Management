@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { State } from './state/reducers/';
 import { selectTitle } from './state/selector/';
-import { tap } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { Reset, Update } from './state/actions'
 
 @Component({
@@ -12,13 +12,18 @@ import { Reset, Update } from './state/actions'
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  $title: Observable<string>;
+  $title: Observable<any>;
   constructor(
     private store:Store<State>
   ) {
-    this.$title = store.select('reducer').pipe(
+    this.$title = store.select('titleState').pipe(
       select(selectTitle)
     )
+    /*
+      {
+        title: string
+      }
+    */
   }
 
   updateTitle(title: string) {

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, StoreModule.forRoot({reducer}) ],
+  imports:      [ BrowserModule, FormsModule, StoreModule.forRoot({titleState: reducer}) ],
   declarations: [ AppComponent, TitleComponent ],
   bootstrap:    [ AppComponent ]
 })
