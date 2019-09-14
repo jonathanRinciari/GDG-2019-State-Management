@@ -6,8 +6,8 @@ export enum ActionTypes {
 }
 
 export interface CustomAction extends Action {
-type: string;
-payload?: any;
+  type: string;
+  payload?: any;
 }
 
 export class Reset implements CustomAction {
