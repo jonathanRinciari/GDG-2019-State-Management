@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { State } from './state/reducers/';
-import { selectTitle } from './state/selector/';
+import { selectTitle, reverseTitle } from './state/selector/';
 import { map } from 'rxjs/operators'
 import { Reset, Update } from './state/actions'
 
